@@ -108,6 +108,21 @@ class Draw extends TimerTask
 
 	public void run()
 	{
+		List<Integer> result = drawResult();
+		if (result != null)
+		{
+			System.out.printf(
+					"%s " + result + " win the draw \n", Thread.currentThread().getName());
+		}
+		else
+		{
+			System.out.printf(
+					"%s no one win the draw \n", Thread.currentThread().getName());
+		}
+	}
+
+	public List<Integer> drawResult()
+	{
 		SecureRandom random = new SecureRandom();
 		List<Integer> drawResult = markSix.getNumberList(random);
 		System.out.println("The draw result " + drawResult);
@@ -115,14 +130,10 @@ class Draw extends TimerTask
 		{
 			if (checkTicketList.equals(drawResult))
 			{
-				System.out.printf(
-						"%s " + checkTicketList + " win the draw \n", Thread.currentThread().getName());
-				return;
+				return checkTicketList;
 			}
 		}
-		System.out.printf(
-				"%s no one win the draw \n", Thread.currentThread().getName());
-
+		return null;
 	}
 }
 

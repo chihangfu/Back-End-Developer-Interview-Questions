@@ -148,7 +148,6 @@ public class MarkSixUnitTest
 		contestant.add(22);
 		contestant.add(31);
 		contestant.add(45);
-		contestant.add(46);
 
 		List<Integer> contestant1 = new ArrayList<>();
 		contestant1.add(1);
@@ -172,7 +171,7 @@ public class MarkSixUnitTest
 		contestantList.add(contestant1);
 		contestantList.add(contestant2);
 		Draw draw = new Draw(markSix, contestantList);
-		draw.run();
+		Assert.assertEquals(drawResultList, draw.drawResult());
 	}
 
 	@Test
@@ -217,6 +216,6 @@ public class MarkSixUnitTest
 		contestantList.add(contestant1);
 		contestantList.add(contestant2);
 		Draw draw = new Draw(markSix, contestantList);
-		draw.run();
+		Assert.assertNull(draw.drawResult());
 	}
 }
